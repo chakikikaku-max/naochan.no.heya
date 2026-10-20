@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>プロフィール</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f3ee;
+    --surface: #fffdf9;
+    --text: #2f2b27;
+    --muted: #7a726a;
+    --line: #e4ddd3;
+    --accent: #6f8471;
+    --accent-soft: #e8eee6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1d1c1a;
+      --surface: #262422;
+      --text: #ece7e0;
+      --muted: #a69e95;
+      --line: #3a3733;
+      --accent: #9fb5a1;
+      --accent-soft: #2e352f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1d1c1a;
+    --surface: #262422;
+    --text: #ece7e0;
+    --muted: #a69e95;
+    --line: #3a3733;
+    --accent: #9fb5a1;
+    --accent-soft: #2e352f;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Noto Sans JP", system-ui, sans-serif;
+    line-height: 1.9;
+    letter-spacing: 0.03em;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 64px 16px 80px; }
+
+  /* はじめに */
+  .hero { text-align: center; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
+  .photo {
+    width: 128px; height: 128px; margin: 0 auto 24px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    display: grid; place-items: center;
+    color: var(--muted); font-size: 13px;
+  }
+  .title { color: var(--accent); font-size: 14px; font-weight: 500; letter-spacing: 0.12em; }
+  h1 {
+    font-family: "Noto Serif JP", serif;
+    font-size: clamp(28px, 6vw, 36px);
+    font-weight: 600;
+    margin: 8px 0 20px;
+  }
+  .lead { color: var(--muted); max-width: 32em; margin: 0 auto; }
+
+  /* 見出し */
+  section { padding: 48px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+  h2 {
+    font-family: "Noto Serif JP", serif;
+    font-size: 20px; font-weight: 500;
+    margin-bottom: 28px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  h2::before { content: ""; width: 24px; height: 1px; background: var(--accent); }
+
+  /* 実績 */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 28px; }
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px 12px;
+    text-align: center;
+  }
+  .stat .num { font-family: "Noto Serif JP", serif; font-size: 24px; font-weight: 600; color: var(--accent); }
+  .stat .label { font-size: 12px; color: var(--muted); }
+  .list { list-style: none; }
+  .list li { padding: 12px 0 12px 20px; border-top: 1px dashed var(--line); position: relative; }
+  .list li::before {
+    content: ""; position: absolute; left: 0; top: 24px;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+  }
+
+  /* 連絡先 */
+  .contact { display: grid; gap: 12px; }
+  .contact a {
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 20px;
+    color: var(--text);
+    text-decoration: none;
+    transition: border-color .2s;
+  }
+  .contact a:hover { border-color: var(--accent); }
+  .contact .kind { font-size: 13px; color: var(--muted); }
+  .contact .value { font-weight: 500; overflow-wrap: anywhere; text-align: right; }
+
+  footer { text-align: center; color: var(--muted); font-size: 12px; padding-top: 32px; }
+
+  @media (max-width: 480px) {
+    .wrap { padding-top: 48px; }
+    .stats { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="hero">
+    <div class="photo">写真</div>
+    <p class="title">ここに肩書き</p>
+    <h1>ここに名前</h1>
+    <p class="lead">ここに、ひとことの自己紹介を入れます。どんな人に、どんなことを届けているのかを2〜3行で書くと伝わりやすくなります。</p>
+  </header>
+
+  <section>
+    <h2>実績</h2>
+    <div class="stats">
+      <div class="stat"><div class="num">〇〇人</div><div class="label">ここに項目</div></div>
+      <div class="stat"><div class="num">〇〇件</div><div class="label">ここに項目</div></div>
+      <div class="stat"><div class="num">〇〇年</div><div class="label">ここに項目</div></div>
+    </div>
+    <ul class="list">
+      <li>ここに実績1（例：〇〇で紹介されました）</li>
+      <li>ここに実績2</li>
+      <li>ここに実績3</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>連絡先</h2>
+    <div class="contact">
+      <a href="#"><span class="kind">メール</span><span class="value">ここにメールアドレス</span></a>
+      <a href="#"><span class="kind">Threads</span><span class="value">ここにアカウント名</span></a>
+      <a href="#"><span class="kind">Instagram</span><span class="value">ここにアカウント名</span></a>
+    </div>
+  </section>
+
+  <footer>© ここに名前</footer>
+</main>
+</body>
+</html>
